@@ -70,7 +70,7 @@ if(number1 %2 == 0){
 }*/
 
 //Loop
-let conter=0;
+/*let conter=0;
 while(conter<=4){
     conter+=1;
     console.log("while:", conter);
@@ -78,4 +78,156 @@ while(conter<=4){
 
 for(let i=0; i<=4; i++){
     console.log("for:", i);
+}*/
+
+//Array
+/*let age1=25;
+let age2=30;
+let age3=35;
+console.log(age1, age2, age3);// 25 30 35
+
+let age =[25,30,35];
+console.log(age);//[25,30,35]
+console.log(age[1]);
+
+age=[40,45,50];
+console.log(age);//[40,45,50]
+
+//ต่อ array
+age.push(55);
+console.log(age);//[40,45,50,55]
+
+//ความยาวของ array
+console.log(age.length);//4
+
+//ลบสมาชิกตัวสุดท้าย
+age.pop();
+console.log(age);//[40,45,50]
+
+if(age.includes(45)){
+    console.log("45 is found.");
 }
+
+let number=[90,60,80,40,50];
+number.sort();
+console.log(number);//[40,50,60,80,90]
+
+let names=["John","Alice","Bob"];
+names.push("Smith");
+names.sort();
+console.log(names);
+console.log("Length:", names.length);
+
+for(let i=0; i<names.length; i++){
+    console.log(names[i]);
+}*/
+
+//object
+/*let student=[{
+    age:20,
+    name:"Emma",
+    grade:'A'
+},{
+    age:22,
+    name:"Liam",
+    grade:'B'
+}];
+for(let i=0; i<student.length; i++){
+    console.log("student",+(i+1)+":");
+    console.log("Name:", student[i].name);
+    console.log("Age:", student[i].age);
+    console.log("Grade:", student[i].grade);
+}
+student.push({
+    age:21,
+    name:"Olivia",
+    grade:'A'
+});
+console.log(student);*/
+
+//function
+//ประกาศฟังก์ชัน
+/*function calculate_grade(score){
+    if(score>=80){
+        grade='A';
+    }else if(score>=70){
+        grade='B';
+    }else if(score>=60){
+        'C';
+    }else if(score>=50){
+        grade='D';
+    }else{
+        grade='F';
+    }   
+    return grade;
+}   
+//เรียกใช้ฟังก์ชัน
+let student_score=85;
+let student_grade=calculate_grade(student_score);
+console.log("Student grade:", student_grade);*/
+
+//array
+/*let score=[10,20,30,40,50];
+for(let i=0; i<score.length; i++){
+    //console.log('Score at index +'+i+':', score[i]);
+    console.log(`Score at index ${i}: ${score[i]}`);
+}
+
+//score[0]=score[0]*2 วิธี1
+score=score.map(s => {
+    return s*2
+}); 
+
+
+score.forEach((s) => {
+    console.log('score', s);
+})*/
+
+/*let score=[10,20,30,40,50];
+
+for (let index=0; index<score.length; index++){
+    console.log('score',score[index])
+}
+let newScore=score.filter((s)=>{
+    return s>=30
+}
+
+newScore.forEach((ns)=>{
+    console.log('new score:',ns)
+})
+//ระวังปีกกา เครื่องหมาย ในข้อสอบ!!
+);*/
+
+//object+function
+let students=[
+    {
+       name:'aa',
+       score:'50',
+       grade:'A'
+    },
+    {
+       name:'bb',
+       score:'75',
+       grade:'B'
+    }
+]
+console.log('Student:',students[0]);
+
+let student=student.find((s)=>{
+    if (s.name==='bb'){
+        return true
+    }
+})
+let doubleScore_student=student.map((s)=>{
+    s.score=s.score*2
+    return s
+})
+console.log('student:',student)
+console.log(doubleScore_student)
+
+let highScore_student=student.filter((s)=>{
+    if (s.score>=110){
+        return true
+    }
+})
+console.log('high score student:',highScore_student)
