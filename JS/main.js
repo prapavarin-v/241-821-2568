@@ -1,7 +1,7 @@
 //console.log("Hello World");
 /*let fname = "John";
 console.log("Name:", fname);
-const PI = 3.14;
+const PI = 3.14; //*const ห้ามเปลี่ยนค่า!!!
 
 let age = 30;
 let height = 5.9;
@@ -10,7 +10,7 @@ fname="Alice";
 console.log("Hello " + fname);
 
 fname="Bob";
-PI=3.14159;
+PI=3.14159;//*const
 console.log("Name: ",fname);
 console.log("Age: " ,age);
 console.log("Height: ", height);*/
@@ -18,20 +18,20 @@ console.log("Height: ", height);*/
 /*let number1='10';
 let number2='3';
 let result=number1+number2;
-console.log("ผลบวก:", result);*/
+console.log("ผลบวก:", result);//103เป็นstr
 
-/*let number1=10;
+let number1=10;
 let number2=20;
-let condition=number1<number2; // true
-console.log("condition:", condition);*/
+let condition=number1<number2; 
+console.log("condition:", condition);// true*/
 
 //ต้องเป็นจริงถึงเข้า condition
-/*
-let number1=3;
+
+/*let number1=3;
 let number2=5;
 if(number1>=number2){//เช็คหลายเงื่อนไข AND &&
-    console.log('this is if');
-}else if{
+    console.log('this is if');//output
+}else if(number1==number2){//หลัง else if ต้องมีเงื่อนไข!
     console.log('this is else if');
 }else{
     console.log('this is else');
@@ -54,12 +54,12 @@ if(number1>=number2){//เช็คหลายเงื่อนไข AND &&
 /*let number1=5
 let number2=10
 
-let condition1=(number1>0) || (number2>0)
-console.log("condition1:", condition1)
+let condition1=(number1>0) || (number2>0)// T or T
+console.log("condition1:", condition1)//true
 
 let age=25
 let gender="female"
-if(age >= 18 && gender=="female"){
+if(age >= 18 && gender=="female"){// must T & T
     console.log("You are eligible to vote.");
 }*/
 
@@ -71,13 +71,13 @@ if(number1 %2 == 0){
 
 //Loop
 /*let conter=0;
-while(conter<=4){
+while(conter<=4){//ทำ5รอบ
     conter+=1;
-    console.log("while:", conter);
+    console.log("while:", conter);//1-5
 }
 
-for(let i=0; i<=4; i++){
-    console.log("for:", i);
+for(let i=0; i<=4; i++){//ทำ5รอบ
+    console.log("for:", i);//0-4
 }*/
 
 //Array
@@ -88,7 +88,7 @@ console.log(age1, age2, age3);// 25 30 35
 
 let age =[25,30,35];
 console.log(age);//[25,30,35]
-console.log(age[1]);
+console.log(age[1]);//30
 
 age=[40,45,50];
 console.log(age);//[40,45,50]
@@ -104,16 +104,16 @@ console.log(age.length);//4
 age.pop();
 console.log(age);//[40,45,50]
 
-if(age.includes(45)){
+if(age.includes(45)){//มีค่า 45 อยู่มั้ย??
     console.log("45 is found.");
 }
 
 let number=[90,60,80,40,50];
-number.sort();
+number.sort();//เรียง min-max
 console.log(number);//[40,50,60,80,90]
 
 let names=["John","Alice","Bob"];
-names.push("Smith");
+names.push("Smith");//ต่อ array
 names.sort();
 console.log(names);
 console.log("Length:", names.length);
@@ -138,7 +138,7 @@ for(let i=0; i<student.length; i++){
     console.log("Age:", student[i].age);
     console.log("Grade:", student[i].grade);
 }
-student.push({
+student.push({//ต่อ
     age:21,
     name:"Olivia",
     grade:'A'
@@ -153,7 +153,7 @@ console.log(student);*/
     }else if(score>=70){
         grade='B';
     }else if(score>=60){
-        'C';
+        grade='C';
     }else if(score>=50){
         grade='D';
     }else{
@@ -164,70 +164,61 @@ console.log(student);*/
 //เรียกใช้ฟังก์ชัน
 let student_score=85;
 let student_grade=calculate_grade(student_score);
-console.log("Student grade:", student_grade);*/
+console.log("Student grade:", student_grade);//grade A*/
 
 //array
-/*let score=[10,20,30,40,50];
+let score=[10,20,30,40,50];
 for(let i=0; i<score.length; i++){
-    //console.log('Score at index +'+i+':', score[i]);
-    console.log(`Score at index ${i}: ${score[i]}`);
+    //console.log('Score at index +'+i+':', score[i]); (1)
+    console.log(`Score at index ${i}: ${score[i]}`);// (2)
+    //&{varible}-->Backtick (`) $=เหมือนตัวแปรปกติ
 }
 
 //score[0]=score[0]*2 วิธี1
-score=score.map(s => {
+score=score.map(s => {//map=แปลงค่าทุกตัว
     return s*2
 }); 
 
-
-score.forEach((s) => {
+score.forEach((s) => {//ใช้วนลูป array ไม่คืนค่า array ใหม่
     console.log('score', s);
-})*/
+})
 
 /*let score=[10,20,30,40,50];
 
 for (let index=0; index<score.length; index++){
-    console.log('score',score[index])
+    console.log('score',score[index]);
 }
-let newScore=score.filter((s)=>{
-    return s>=30
-}
+let newScore=score.filter((s)=>{//คัดเลือกสมาชิกใน array
+    return s>=30;//30 up
+});
 
-newScore.forEach((ns)=>{
-    console.log('new score:',ns)
-})
-//ระวังปีกกา เครื่องหมาย ในข้อสอบ!!
-);*/
+newScore.forEach((ns)=>{//[30,40,50]
+    console.log('new score:',ns);
+});*/
+
 
 //object+function
-let students=[
-    {
-       name:'aa',
-       score:'50',
-       grade:'A'
-    },
-    {
-       name:'bb',
-       score:'75',
-       grade:'B'
-    }
-]
-console.log('Student:',students[0]);
+/*let students=[//มี s !!test
+    { name:'aa',score:'50',grade:'A'},
+    { name:'bb',score:'60',grade:'B'}
+];
+console.log('Student:',students[0]);//มี s !!test
 
-let student=student.find((s)=>{
+let student=students.find((s)=>{
     if (s.name==='bb'){
         return true
     }
 })
-let doubleScore_student=student.map((s)=>{
+let doubleScore_student=students.map((s)=>{//map เปลี่ยนค่าทุกตัว
     s.score=s.score*2
     return s
 })
 console.log('student:',student)
 console.log(doubleScore_student)
 
-let highScore_student=student.filter((s)=>{
+let highScore_student=students.filter((s)=>{
     if (s.score>=110){
         return true
     }
 })
-console.log('high score student:',highScore_student)
+console.log('high score student:',highScore_student);*/

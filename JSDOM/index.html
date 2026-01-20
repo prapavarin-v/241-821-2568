@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <button onclick="userClicked()">Submit</button>
+    <div onclick="devCleck()"> dev clicked</div>
+    -->
+    
+    <!--
+    ชื่อ: <input
+        id = "fname"
+        type = "text"
+        name = "fname"
+        value = "John">
+    นามสกุล: <input
+        id = "lname"
+        type = "text"
+        name = "lname"
+        value = "Doe">
+    งานอดิเรก:
+    <input type="checkbox" name="hobby" value="football">Football
+    <input type="checkbox" name="hobby" value="basketball">Basketball
+    <input type="checkbox" name="hobby" value="tennis">Tennis
+    -->
+    เพศ:
+    <input type="radio" name="gender" value="male" onchange="onchangeGender()" checked="true">ชาย
+    <input type="radio" name="gender" value="female" onchange="onchangeGender()" >หญิง
+    <script>
+        function onchangeGender(){
+            let genderInput = document.querySelectorAll('input[name="gender"]');
+
+                for (let i =0; i<genderInput.length; i++){
+                    if(genderInput[i].checked){
+                        console.log("เพศที่เลือก:" + genderInput[i].value);
+                    }
+                }
+        }
+        
+
+    </script>
+    
+</body>
+</html>
