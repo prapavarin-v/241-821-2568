@@ -27,10 +27,9 @@
     <input type="checkbox" name="hobby" value="basketball">Basketball
     <input type="checkbox" name="hobby" value="tennis">Tennis
     -->
-    เพศ:
+    <!--เพศ:
     <input type="radio" name="gender" value="male" onchange="onchangeGender()" checked="true">ชาย
     <input type="radio" name="gender" value="female" onchange="onchangeGender()" >หญิง
-    <script>
         function onchangeGender(){
             let genderInput = document.querySelectorAll('input[name="gender"]');
 
@@ -39,8 +38,38 @@
                         console.log("เพศที่เลือก:" + genderInput[i].value);
                     }
                 }
-        }
-        
+    }-->
+    <div id = "hi">Hi <span style ="display: none;">A</span></div>
+    <input type="checkbox" name="interest" value="กีฬา">กีฬา
+    <input type="checkbox" name="interest" value="ดนตรี">ดนตรี
+    <input type="checkbox" name="interest" value="อ่านหนังสือ">อ่านหนังสือ
+    <br><br>
+    <button onclick="submitinterest()">ส่งข้อมูล</button>
+
+    <!--<script>
+    let hiDOM = document.getElementById("hi");
+    hiDOM.innerHTML='hello <b>A/b>';
+    console.log(hiDOM.textContent);
+    console.log(hiDOM.innerText);
+    console.log(hiDOM.innerHTML);
+    </script>-->
+    <script>
+        function submitinterest(){
+            let checkbox = document.querySelectorAll('input[name="interest"]');
+            for (let i = 0; i<checkbox.length;i++){
+                if (checkbox[i.checked]){
+                    //console.log(checkbox[i].value);
+                    contentHTML += '<li>' + checkbox[i].value + '</li>';
+                }
+                }
+                contentHTML += '</ul>';
+                console.log(contentHTML); 
+
+                let contentDiv = document.getElementById('content');
+                contentDiv.innerHTML = contentHTML;
+            }
+            
+
 
     </script>
     
