@@ -1,0 +1,22 @@
+docker run (ตามด้วยสิ่งที่จะแสดงผล)
+docker ps —all > เช็คค่า containner id , image, command
+docker run busybox ls > เช็คดูว่ามีอะไรบ้าง
+docker run busybox ping google.com
+docker stop ตามด้วยชื่อ container > สั่งหยุด
+docker pull busybox
+docker create busybox ping google.com > สร้าง container
+docker start ตามด้วยชื่อ container > สั่งเริ่มทำงาน
+docker rm ตามด้วยชื่อ container > ลบตัวที่ไม่ต้องการ
+docker system prune > ลบทั้งหมด
+docker run nginx
+docker exec -it ตามด้วยชื่อ container sh 
+cd usr/share/nginx/html > ls > cat ตามด้วย file
+docker run -p 9000:80 nginx > สร้าง container ใน nginx
+docker run -d -p 9001:80 nginx
+
+// สามารถลบ + หยุด ทั้งหมดได้
+docker stop id (all)
+docker rm id (all)
+
+// RETRIEVING LOG OUTPUTS ------------------------------------------------
+docker logs <container>

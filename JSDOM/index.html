@@ -39,6 +39,11 @@
                     }
                 }
     }-->
+    <!-- java event : onkeydown -->
+    <!-- ชื่อ <input type="text" name="fname" onkeydown="changeFname()"/>  -->
+
+    <!-- java event : onkeydown -->
+    <!-- ชื่อ <input type="text" name="fname" onkeyup="changeFname()"/-->            
     <div id = "hi">Hi <span style ="display: none;">A</span></div>
     <input type="checkbox" name="interest" value="กีฬา">กีฬา
     <input type="checkbox" name="interest" value="ดนตรี">ดนตรี
@@ -53,6 +58,12 @@
     console.log(hiDOM.innerText);
     console.log(hiDOM.innerHTML);
     </script>-->
+    <!--function changeFname() {
+            console.log("Key down event datected");
+            // เลือก input element
+            let inputElement = document.querySelector('input[name="fname"]');
+            // ดึงค่า value
+            console.log(inputElement.value);-->
     <script>
         function submitinterest(){
             let checkbox = document.querySelectorAll('input[name="interest"]');
