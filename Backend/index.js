@@ -1,16 +1,68 @@
-// ทำการ import http module เพื่อสร้าง server
-const http = require('http');
-const host = 'localhost';
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
 const port = 8000;
 
-// กำหนดค่าเริ่มต้นของ server เมื่อเปิดใช้งาน เว็บผ่านเบราว์เซอร์ ที่ localhost:8000
-const requestListener = function(req, res) {
-    res.writeHead(200);
-    res.end('My First Server!');
-}
+app.use(bodyParser.json());
 
-// run server
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-    console.log(`Server is running at http://${host}:${port}`);
+let users = []
+let counter = 1;
+
+// path = GET /users
+app.get('/users', (req, res) => {
+    res.json(users);
+});
+
+// path = POST /user
+app.post('/user', (req, res) => {
+    let user = req.body;
+    user.id = counter
+    counter += 1;
+    users.push(user);
+    res.json({
+        message: 'User added successfully',
+        user: user
+    });
+});
+
+// path = PUT /user/:id
+app.patch('/user/:id', (req, res) => {
+    let id = req.params.id;
+    let updatedUser = req.body;
+
+    let seletedIndex = users.findIndex(user.id == id);
+
+    if(updatedUser.name){
+        user[seletedIndex].name = updatedUser.name;
+    }
+
+    if(updatedUser.email){
+        user[seletedIndex].email = updatedUser.email;
+    }
+
+    users[seletedIndex].name = updatedUser.name|| users[seletedIndex].name;
+    users[seletedIndex].email = updatedUser.email|| users[seletedIndex].email;
+
+    res.json({
+        message: 'User updated successfull',
+        data:{
+            user: updatedUser,
+            indexUpdated: seletedIndex
+        }
+    })
+});
+
+app.delete('/user/:id',(req, res) => {
+    let seletedIndex = users.findIndex(user => user.id == id);
+    users.splice(seletedIndex,1);
+
+    res.json({
+        message: 'User deleted successfull',
+            indexDeleted: seletedIndex
+    });
+})
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
