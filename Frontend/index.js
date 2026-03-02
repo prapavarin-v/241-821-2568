@@ -1,26 +1,41 @@
-function submitData() {
+//function submitData() {
+const submitData = async() => {
     let firstNameDOM = document.querySelector('input[name=firstname]');
     let lastNameDOM = document.querySelector('input[name=lastname]');
     let ageDOM = document.querySelector('input[name=age]');
     let genderDOM = document.querySelector('input[name=gender]:checked');
-    let interestDOMs = document.querySelectorAll('input[name=interest]:checked');
+    let interestDOMs = document.querySelectorAll('input[name=interests]:checked');
     let descriptionDOM = document.querySelector('textarea[name=description]');
 
-    let interest = '';
-    for (let i = 0; i < interestDOMs.length; i++) {
-        interest += interestDOMs[i].value;
-        if (i != interestDOMs.length - 1) {
-            interest += ',';
+    let massageDOM = document.getElementById('message')
+    try {
+        let interest = '';
+        for (let i = 0; i < interestDOMs.length; i++) {
+            interest += interestDOMs[i].value;
+            if (i != interestDOMs.length - 1) {
+                interest += ',';
         }
     }
 
     let userData = {
-        firstName: firstNameDOM.value,
-        lastName: lastNameDOM.value,
-        age: ageDOM.value,
-        gender: genderDOM.value,
-        description: descriptionDOM.value,
-        interest: interest
+            firstName: firstNameDOM.value,
+            lastName: lastNameDOM.value,
+            age: ageDOM.value,
+            gender: genderDOM.value,
+            description: descriptionDOM.value,
+            interests: interest
+        }
+    
+        const response = await axios.post('http://localhost:8000/users', userData)
+        console.log('response', response.data);
+        massageDOM.innerText = 'บันทึกข้อมูลสำเร็จ'
+        massageDOM.className = 'message success'
+    } catch (error){
+        if (error.response){
+            console.log('Error response:', error.response.data.massage);
+        }
+        massageDOM.innerText = 'การบันทึกข้อมูลผิดพลาด'
+        massageDOM.className = 'message danger'
     }
 
     console.log('submitData', userData);
